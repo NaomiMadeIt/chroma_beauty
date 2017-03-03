@@ -1,25 +1,17 @@
 <?php
-//begin or resume the session
-session_start();
-//if the cookie is still valid, re-create the session
-if ( $_COOKIE['logged-in-cookie'] ) {
-     $_SESSION['logged-in-session'] = true;
-}
-//security!
-if ( ! $_SESSION['logged-in-session'] ) {
-     //send them back to hell!
-     header('location:login.php');
-}
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Secret Page</title>
-  </head>
-  <body>
-    <h1>You have unlocked the secret page. Fucker.</h1>
 
-    <a href="login.php?action=logout">Log Out</a>
-  </body>
-</html>
+  require('db-config.php');
+  //use _once on function definitions to prevent duplicates
+  include_once('functions.php');
+  //get the doctype and header area
+  include('user_loggedin.php');
+  include('header.php');
+?>
+<main>
+  <h2>You've entered the secret page! Lucky you.</h2>
+  <img src="http://cdn0.dailydot.com/uploaded/images/original/2017/2/20/whiguyblink.gif" />
+  <a href="login.php?action=logout">Log TF Out</a>
+</main>
+<?php
+  include('footer.php');
+?>

@@ -20,4 +20,9 @@
         <li><a href="about.php">About Us</a></li>
         <li><a href="#">Contact Us</a></li>
       </ul>
+      <form action="search.php" method="get">
+        <label for="keywords">Search:</label>
+        <input type="search" name="keywords" id="keywords" />
+        <input type="submit" value="Find" />
+      </form>
     </header>

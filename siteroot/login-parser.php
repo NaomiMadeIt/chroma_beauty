@@ -1,7 +1,7 @@
 <?php
 session_start();
 //let's hide nasty notices
-error_reporting( E_ALL & ~E_NOTICE );
+// error_reporting( E_ALL & ~E_NOTICE );
 require('db-config.php');
 include_once('functions.php');
 
@@ -41,6 +41,9 @@ if( $_POST['did_login']){
     $expiration = time() + 60 * 60 * 24 * 7;
 
     setcookie('security_key', $security_key, $expiration);
+    $_SESSION['security_key'] = $security_key;
+
+    setcookie('user_id', $user_id, $expiration);
     $_SESSION['user_id'] = $user_id;
 
     //make sure the query worked
@@ -52,11 +55,12 @@ if( $_POST['did_login']){
   }else{
     //show an error
     $feedback = 'Your username and password combo is incorrect.';
-  }else{
-  $feedback = 'Username or password are not the right length.';
   }//end validation
+}
+else{
+$feedback = 'Username or password are not the right length.';
+}
 } //end of form parser
-
 //is the user trying to log out?
 //URL looks like ...login.php?action=logout
 if( $_GET['action'] == 'logout' ){

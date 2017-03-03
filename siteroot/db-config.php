@@ -16,3 +16,5 @@ if( $db-> connect_errno > 0 ){
 define('SALT', 'ldsjflajlfkj@suajldf$$$why$you$so$salty$tho???ha7fjs()DSFSJKELFiejafji*$91113344osi7jaesa!FS(1i#a#flndfdksdfjaaakfj');
 
 error_reporting( E_ALL & ~E_NOTICE );
+
+session_start();
