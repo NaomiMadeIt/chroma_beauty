@@ -1,5 +1,5 @@
 <?php
-  error_reporting( E_ALL & ~E_NOTICE );
+  // error_reporting( E_ALL & ~E_NOTICE );
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <title>ChromaBeauty About Us</title>
     <!-- TODO: ADD RESET -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="alternate" type="application/rss+xml" href="rss.php">
     <meta name=viewport content="width=device-width, initial-scale=1">

@@ -60,3 +60,11 @@ function show_feedback( $feedback, $errors = array() ){
     echo '</div>';
   }
 }
+
+// function stock($stock){
+//   if(1){
+//     echo 'In Stock';
+//   }else{
+//     echo 'Out of Stock';
+//   }
+// }

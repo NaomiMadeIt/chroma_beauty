@@ -16,11 +16,12 @@
 <main>
   <?php
     //Get all the published posts that contain the keywords in their title or body
-    $query = "SELECT DISTINCT products.name, products.description, categories.name
+    $query = "SELECT DISTINCT products.name, products.description, categories.cat_name
               FROM products, categories, product_categories
               WHERE products.product_id = product_categories.product_id
               AND categories.category_id = product_categories.category_id
-              AND ( products.name LIKE '%$keywords%' OR products.description LIKE '%$keywords%' OR categories.name LIKE '%$keywords%' )";
+              AND ( products.name LIKE '%$keywords%' OR products.description LIKE '%$keywords%' OR categories.cat_name LIKE '%$keywords%' )";
+    // echo $query;
     //run the query. catch the returned info in a result
     $result = $db->query($query);
 
@@ -58,7 +59,7 @@
               <?php echo $row['name']; ?>
         </a>
       </h2>
-      <p><?php echo $row['description'] ?></p>
+      <p><?php echo $row['description']; ?></p>
     </article>
   <?php
         } //end while there are posts
