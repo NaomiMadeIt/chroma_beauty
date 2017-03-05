@@ -16,7 +16,7 @@
   </head>
   <body>
     <header>
-      <h1><span id="chroma">CHROMA</span><span id="beauty">Beauty</span></h1>
+      <h1><span class="chroma">CHROMA</span><span class="beauty">Beauty</span></h1>
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="products.php">Products</a></li>

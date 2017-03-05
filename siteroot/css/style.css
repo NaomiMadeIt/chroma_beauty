@@ -1,11 +1,11 @@
 body {
   font-family: 'Nunito', sans-serif;
 }
-#chroma {
+.chroma {
   font-family: 'Boogaloo', cursive;
   color: #F23EDA;
 }
-#beauty {
+.beauty {
   font-family: 'Pacifico', cursive;
   color: #FFF;
 }
@@ -22,7 +22,7 @@ h2 {
 }
 h3 {
   font-family: 'Boogaloo', cursive;
-  lavender - #C876FF;
+  color: #C876FF;
 }
 .fullheart {
   color: #F23EDA;
@@ -31,7 +31,7 @@ h3 {
   color: #010108;
 }
 .notrated {
-  
+  color: #F6B3E5;
 }
 /*
 font-family: 'Boogaloo', cursive;

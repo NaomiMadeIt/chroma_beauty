@@ -14,10 +14,12 @@
 ?>
 <main>
   <?php
-    $query = "SELECT product_images.image, products.name, products.description, products.price, products.in_stock, products.added_date
-              FROM products, product_images
+    $query = "SELECT product_images.image, products.name, products.description, products.price, products.in_stock, products.added_date, reviews.rating
+              FROM products, product_images, reviews
               WHERE products.product_id = $product_id
-              AND products.prodimg_id = product_images.prodimg_id
+              -- AND products.prodimg_id = product_images.prodimg_id
+              -- ▲ NOTE: line makes some not work, is it even necessary? Ask Melissa. May need to remove it from table all together. ▲
+              AND products.product_id = reviews.product_id
               LIMIT 1";
     // echo $query;
     $result = $db->query($query);
@@ -30,11 +32,15 @@
     <h2><?php echo $row['name']; ?></h2>
     <p><?php echo $row['description']; ?></p>
     <p><?php echo stock($row['in_stock']); ?></p>
+    <p><?php rating($row['rating']); ?></p>
     <p>$<?php echo $row['price']; ?></p>
 
   </article>
   <?php } //end while loop ?>
-  <?php } //end if one product is found ?>
+  <?php } //end if one product is found
+  else{
+    echo 'Sorry, the product you were looking for could not be found or does not exist.';
+  } ?>
 </main>
 <?php
   include('footer.php');

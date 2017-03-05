@@ -78,13 +78,13 @@ function rating($rating){
       echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
       break;
     case 3:
-      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
       break;
     case 4:
-      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
       break;
     case 5:
-      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\">";
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i>";
       break;
     default:
       echo "<span class=\"notrated\">Item not currently rated</span>";
