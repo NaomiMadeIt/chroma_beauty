@@ -1,0 +1,47 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+#chroma {
+  font-family: 'Boogaloo', cursive;
+  color: #F23EDA;
+}
+#beauty {
+  font-family: 'Pacifico', cursive;
+  color: #FFF;
+}
+header, footer {
+  background-color: #010108;
+  color: #FFF;
+}
+aside {
+  background-color: #20115B;
+}
+h2 {
+  font-family: 'Pacifico', cursive;
+  color: #F23EDA;
+}
+h3 {
+  font-family: 'Boogaloo', cursive;
+  lavender - #C876FF;
+}
+.fullheart {
+  color: #F23EDA;
+}
+.emptyheart {
+  color: #010108;
+}
+.notrated {
+  
+}
+/*
+font-family: 'Boogaloo', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Nunito', sans-serif;
+
+blackish - #010108;
+darkpurple - #20115B;
+hotpink - #F23EDA;
+lavender - #C876FF;
+palepink - #F6B3E5;
+
+*/

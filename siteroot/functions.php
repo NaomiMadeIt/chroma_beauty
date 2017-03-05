@@ -61,10 +61,32 @@ function show_feedback( $feedback, $errors = array() ){
   }
 }
 
-// function stock($stock){
-//   if(1){
-//     echo 'In Stock';
-//   }else{
-//     echo 'Out of Stock';
-//   }
-// }
+function stock($stock){
+  if(1){
+    echo 'In Stock';
+  }else{
+    echo 'Out of Stock';
+  }
+}
+
+function rating($rating){
+  switch ($rating) {
+    case 1:
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
+      break;
+    case 2:
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
+      break;
+    case 3:
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
+      break;
+    case 4:
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
+      break;
+    case 5:
+      echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"><i class=\"fa fa-heart fullheart\" aria-hidden=\"true\">";
+      break;
+    default:
+      echo "<span class=\"notrated\">Item not currently rated</span>";
+  }
+}

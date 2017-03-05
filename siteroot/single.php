@@ -4,11 +4,12 @@
   include('header.php');
 
   //shows what post we're trying to show
-  //URL will look like: ../single.php?_product_id=X\
+  //URL will look like: ../single.php?product_id=X\
   if( isset($_GET['product_id']) ){
-    $product_id = $GET_['product_id'];
+    $product_id = $_GET['product_id'];
   }else{
     $product_id = 0;
+    echo 'Product not found.';
   }
 ?>
 <main>
@@ -21,14 +22,14 @@
     // echo $query;
     $result = $db->query($query);
 
-    if( $result->num_rows >= 1 ){
+    if( $result->num_rows == 1 ){
       while( $row = $result->fetch_assoc() ){
   ?>
   <article>
     <img src="<?php echo $row['image']; ?>" />
     <h2><?php echo $row['name']; ?></h2>
     <p><?php echo $row['description']; ?></p>
-    <p><?php echo $stock; ?></p>
+    <p><?php echo stock($row['in_stock']); ?></p>
     <p>$<?php echo $row['price']; ?></p>
 
   </article>

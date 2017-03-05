@@ -6,7 +6,12 @@
   include('header.php');
 ?>
 <main>
-  
+  <?php
+    // $query = "SELECT post.title,
+    //           FROM "
+  ?>
+
+  <p><i class="fa fa-heart fullheart" aria-hidden="true"></i></p>
 </main>
 <?php
   include('footer.php');
