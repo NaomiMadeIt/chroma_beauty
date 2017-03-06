@@ -1,8 +1,6 @@
 <?php
   require('db-config.php');
-  //use _once on function definitions to prevent duplicates
   include_once('functions.php');
-  //get the doctype and header area
   include('header.php');
 
   //extract the keywords that the user is searching for
@@ -67,7 +65,7 @@
         $prev = $current_page - 1;
         $next = $current_page + 1;
   ?>
-  <section>
+  <div>
     <?php
       if( $current_page != 1 ){
     ?>
@@ -80,7 +78,7 @@
     <a href="search.php?keywords=<?php echo $keywords; ?>&amp;page=<?php echo $next; ?>">Next Page</a>
     <?php } ?>
 
-  </section>
+  </div>
   <?php
       } //end if the user is on a valid page
       else{
@@ -88,7 +86,7 @@
       }
     } //end if there are products
     else{
-      show_feedback('Sorry, no posts to show.');
+      show_feedback('Sorry, there are no products to show.');
     }
   ?>
 </main>
