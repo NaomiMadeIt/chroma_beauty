@@ -22,6 +22,9 @@
         <li><a href="products.php">Products</a></li>
         <li><a href="about.php">About Us</a></li>
       </ul>
+      <div>
+        <a href="login.php">Login</a>/<a href="register.php">Sign Up</a>
+      </div>
       <form action="search.php" method="get">
         <label for="keywords">Search:</label>
         <input type="search" name="keywords" id="keywords" />

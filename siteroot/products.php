@@ -2,6 +2,7 @@
   require('db-config.php');
   include_once('functions.php');
   include('header.php');
+  include('sidebar.php');
 
   //pagination configuration
   $per_page = 10;
@@ -39,18 +40,22 @@
 
         //modify the original query to get the right subset of results
         $offset = ($current_page - 1) * $per_page;
-        $query = $query . "LIMIT $offset, $per_page";
+        $query = $query . " LIMIT $offset, $per_page";
 
         $result = $db->query($query);
 
+        //tells me exactly where the issue is
+        if(! $result ){
+          echo $db->error;
+        }
         while( $row = $result->fetch_assoc() ){
   ?>
   <figure>
-    <img src="<?php echo $row['image'] ?>" />
+    <img src="<?php echo $row['image']; ?>" />
     <figcaption>
-      <h3><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo $row['name'] ?></a></h3>
+      <h3><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a></h3>
       <p><?php rating($row['rating']); ?></p>
-      <p><?php echo $row['price']; ?></p>
+      <p>$<?php echo $row['price']; ?></p>
       <p><?php echo stock($row['in_stock']); ?></p>
     </figcaption>
   </figure>
