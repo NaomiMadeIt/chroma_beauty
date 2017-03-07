@@ -14,8 +14,8 @@
 <main>
   <?php
     //Get all the published posts that contain the keywords in their title or body
-    $query = "SELECT DISTINCT products.name, products.description, categories.cat_name
-              FROM products, categories, product_categories
+    $query = "SELECT DISTINCT products.name, products.description, categories.cat_name, product_images.image, products.price, products.product_id
+              FROM products, categories, product_categories, product_images, reviews
               WHERE products.product_id = product_categories.product_id
               AND categories.category_id = product_categories.category_id
               AND ( products.name LIKE '%$keywords%' OR products.description LIKE '%$keywords%' OR categories.cat_name LIKE '%$keywords%' )";
@@ -51,14 +51,15 @@
         //loop through each row found, displaying the article each time
         while( $row = $result->fetch_assoc() ){
     ?>
-    <article>
-      <h2>
-        <a href="single.php?product_id=<?php echo $row['product_id']; ?>">
-              <?php echo $row['name']; ?>
-        </a>
-      </h2>
-      <p><?php echo $row['description']; ?></p>
-    </article>
+    <figure>
+      <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $row['image']; ?>" /></a>
+      <figcaption>
+        <h3><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a></h3>
+        <p><?php rating($row['rating']); ?></p>
+        <p>$<?php echo $row['price']; ?></p>
+        <p><?php echo stock($row['in_stock']); ?></p>
+      </figcaption>
+    </figure>
   <?php
         } //end while there are posts
 

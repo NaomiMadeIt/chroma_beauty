@@ -9,7 +9,7 @@
     $product_id = $_GET['product_id'];
   }else{
     $product_id = 0;
-    echo 'Product not found.';
+    //echo 'Product not found.';
   }
 ?>
 <main>

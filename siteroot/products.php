@@ -51,7 +51,7 @@
         while( $row = $result->fetch_assoc() ){
   ?>
   <figure>
-    <img src="<?php echo $row['image']; ?>" />
+    <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $row['image']; ?>" /></a>
     <figcaption>
       <h3><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a></h3>
       <p><?php rating($row['rating']); ?></p>

@@ -1,5 +1,6 @@
 <?php
-  // error_reporting( E_ALL & ~E_NOTICE );
+  error_reporting( E_ALL & ~E_NOTICE );
+  include('user_loggedin.php');
 ?>
 <!DOCTYPE html>
 <html>
