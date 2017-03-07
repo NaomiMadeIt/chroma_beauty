@@ -70,6 +70,7 @@ function stock($stock){
 }
 
 function rating($rating){
+  $rating = round($rating);
   switch ($rating) {
     case 1:
       echo "<i class=\"fa fa-heart fullheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i><i class=\"fa fa-heart emptyheart\" aria-hidden=\"true\"></i>";
@@ -88,5 +89,32 @@ function rating($rating){
       break;
     default:
       echo "<span class=\"notrated\">Item not currently rated</span>";
+  }
+}
+
+function security_check($redirect = false){
+  global $db;
+  //security check! If the user does not have a valid key, send them back to the login form
+  $user_id = $_SESSION['user_id'];
+  $security_key = $_SESSION['security_key'];
+  $query = "SELECT *
+            FROM users
+            WHERE user_id = $user_id
+            AND security_key = '$security_key'
+            LIMIT 1";
+  $result = $db->query($query);
+  if( $redirect AND !$result ){
+    header('Location:login.php?msg=bad_result');
+  }
+
+  if( $result->num_rows == 1 ){
+    //this person is allowed into the admin panel
+    $row = $result->fetch_assoc();
+    define('USERNAME', $row['username']);
+    define('IS_ADMIN', $row['is_admin']);
+    define('USER_ID', $row['user_id']);
+  }elseif( $redirect ){
+    echo $query;
+   header('Location:login.php?msg=no_rows');
   }
 }

@@ -4,7 +4,7 @@
   //use _once on function definitions to prevent duplicates
   include_once('functions.php');
   //get the doctype and header area
-  include('user_loggedin.php');
+  security_check(true);
   include('header.php');
 ?>
 <main>

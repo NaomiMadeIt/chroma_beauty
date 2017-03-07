@@ -1,6 +1,5 @@
 <?php
   error_reporting( E_ALL & ~E_NOTICE );
-  include('user_loggedin.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +23,23 @@
         <li><a href="about.php">About Us</a></li>
       </ul>
       <div>
+      <?php if(!defined('USER_ID')){ ?>
         <a href="login.php">Login</a>/<a href="register.php">Sign Up</a>
+      <?php
+        } // close if not logged in
+        else{
+          $user_id = USER_ID;
+          $query = "SELECT username
+                    FROM users
+                    WHERE user_id = $user_id
+                    LIMIT 1";
+          $result = $db->query($query);
+          if($result->num_rows == 1 ){
+            $row = $result->fetch_assoc();
+      ?>
+        <a href="#"><?php echo $row['username']; ?></a>
+
+      <?php } } //end if logged in ?>
       </div>
       <form action="search.php" method="get">
         <label for="keywords">Search:</label>
