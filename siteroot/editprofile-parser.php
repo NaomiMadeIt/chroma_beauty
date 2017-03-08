@@ -23,6 +23,7 @@
         $query = "SELECT username
                   FROM users
                   WHERE username = '$username'
+                  AND user_id != $user_id
                   LIMIT 1";
         $result = $db->query($query);
         if( $result->num_rows == 1 ){
@@ -52,8 +53,27 @@
           $errors['email'] = 'That email already registered with us to another user.';
         }
       }
-
-
-
     //if valid, update the database
+    if($valid){
+      // TODO! Check logic on password to make sure that when the password already set, it does not get re-sha1'd
+      // TODO! Make it so that the new password gets Sha1'd
+      $query = "UPDATE users
+                SET
+                username = '$username',
+                password = '$password',
+                email    = '$email',
+                fname    = '$fname',
+                lname    = '$lname',
+                bio      = '$bio',
+                user_pic = '$user_pic'";
+      $result = $db->query($query);
+      if( $db->affected_rows == 1 ){
+        //show user feedback
+        $feedback = 'Success! Your post was saved.';
+      }else{
+        $feedback = 'No changes were made.';
+      } //end if row added
+    }else{
+      $feedback = 'Please fix the errors in the form.';
+    }
   } //end if did update
