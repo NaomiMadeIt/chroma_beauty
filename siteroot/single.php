@@ -1,6 +1,7 @@
 <?php
   require('db-config.php');
   include_once('functions.php');
+  security_check();
   include('header.php');
 
   //shows what post we're trying to show
@@ -13,17 +14,13 @@
   }
 
   //Parsing the comment form
-  if( $POST_['did_comment']){
+  if( $_POST['did_review']){
     //sanitize
     // NOTE! Check if you have to make the $_POST item exactly the same as the one in the db (which most likely is the case)
     $user_id = USER_ID;
   	$title	   = clean_string( $_POST['title'] );
   	$body 	   = clean_string( $_POST['body'] );
-  	$rating_one    = clean_integer( $_POST['rating'] );
-    $rating_two    = clean_integer( $_POST['rating'] );
-    $rating_three    = clean_integer( $_POST['rating'] );
-    $rating_four    = clean_integer( $_POST['rating'] );
-    $rating_five    = clean_integer( $_POST['rating'] );
+  	$rating    = clean_integer( $_POST['rating'] );
   	$would_rec = clean_boolean( $_POST['would_rec'] );
 
 
@@ -41,11 +38,9 @@
       $errors['body'] = 'Please tell us how you feel about the product and your personal experiences with it.';
     }
 
-    if( !$rating_one && !$rating_two && !$rating_three && !$rating_four && !$rating_five ){
+    if( $rating == '' ){
       $valid = false;
-      $errors['body'] = 'Please tell us how you feel about the product and your personal experiences with it.';
-    }else{
-      // TODO: Check which was rated/chosen
+      $errors['rating'] = 'Please rate the product.';
     }
 
     // TODO: fillout
@@ -53,7 +48,7 @@
     $query = "INSERT INTO reviews
               ( title, body, rating, date, user_id, product_id, is_published, would_rec )
               VALUES
-              ( '$title', '$body', INPUTSHITHERE, now(), $user_id, $product_id, 1, $would_rec )";
+              ( '$title', '$body', $rating, now(), $user_id, $product_id, 1, $would_rec )";
     $result = $db->query($query);
 
     if( $db->affected_rows == 1 ){
@@ -109,7 +104,7 @@
             AND reviews.user_id = users.user_id
             ORDER BY date DESC
             LIMIT 10";
-  echo $query;
+  $query;
   $result = $db->query($query);
   if( $result->num_rows >= 1 ){
   ?>
@@ -138,29 +133,29 @@
     <h2>Rate This Product</h2>
     <?php
       //user feedback
-      show_feedback($message);
+      show_feedback($message,$errors);
     ?>
-    <form action"<?php echo $_SERVER['PHP_SELF']; ?>" class="ratingform">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>?product_id=<?php echo $product_id; ?>" method="post" class="ratingform">
       <label for="review_title">Review Title</label>
       <input type="text" name="title" id="review_title" />
 
       <label for="review_body">Write Your Review Here</label>
-      <textarea type="text" name="review" id="review_body"></textarea>
+      <textarea type="text" name="body" id="review_body"></textarea>
 
       <label>
-        <input type="radio" name="rating_one" value="1"<?php //if($rating >= 1){ echo 'class="filled"';} ?>/><span>1</span>
+        <input type="radio" name="rating" value="1" /><span>1</span>
       </label>
       <label>
-        <input type="radio" name="rating_two" value="2"/><span>2</span>
+        <input type="radio" name="rating" value="2"/><span>2</span>
       </label>
       <label>
-        <input type="radio" name="rating_three" value="3"/><span>3</span>
+        <input type="radio" name="rating" value="3"/><span>3</span>
       </label>
       <label>
-        <input type="radio" name="rating_four" value="4"/><span>4</span>
+        <input type="radio" name="rating" value="4"/><span>4</span>
       </label>
       <label>
-        <input type="radio" name="rating_five" value="5"/> 5
+        <input type="radio" name="rating" value="5"/> 5
       </label>
 
       <div>
