@@ -1,7 +1,8 @@
 <?php
+  require('db-config.php');
+  include_once('functions.php');
   require('login-parser.php');
-
-  //get the doctype and header area
+  security_check();
   include('header.php');
 ?>
 <main>

@@ -1,8 +1,7 @@
 <?php
   require('db-config.php');
-  //use _once on function definitions to prevent duplicates
   include_once('functions.php');
-  //get the doctype and header area
+  security_check();
   include('header.php');
 ?>
 <main>

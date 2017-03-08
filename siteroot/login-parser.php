@@ -2,8 +2,6 @@
 session_start();
 //let's hide nasty notices
 // error_reporting( E_ALL & ~E_NOTICE );
-require('db-config.php');
-include_once('functions.php');
 
 //begin parsing the form if the user submitted it
 if( $_POST['did_login']){

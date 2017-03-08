@@ -24,7 +24,7 @@
       </ul>
       <div>
       <?php if(!defined('USER_ID')){ ?>
-        <a href="login.php">Login</a>/<a href="register.php">Sign Up</a>
+        <a href="login.php">Login</a> / <a href="register.php">Sign Up</a>
       <?php
         } // close if not logged in
         else{
@@ -37,7 +37,7 @@
           if($result->num_rows == 1 ){
             $row = $result->fetch_assoc();
       ?>
-        <a href="#"><?php echo $row['username']; ?></a>
+        <a href="editprofile.php"><?php echo $row['username']; ?></a> / <a href="login.php?action=logout">Log Out</a>
 
       <?php } } //end if logged in ?>
       </div>

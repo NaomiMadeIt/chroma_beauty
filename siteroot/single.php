@@ -43,7 +43,6 @@
       $errors['rating'] = 'Please rate the product.';
     }
 
-    // TODO: fillout
     if( $valid ){
     $query = "INSERT INTO reviews
               ( title, body, rating, date, user_id, product_id, is_published, would_rec )
