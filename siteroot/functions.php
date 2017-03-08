@@ -118,3 +118,11 @@ function security_check($redirect = false){
    header('Location:login.php?msg=no_rows');
   }
 }
+
+function reccommend($would_rec){
+  if($would_rec = 1){
+    echo 'I would reccommend this product to a friend.';
+  }else{
+    echo 'I would not reccommend this product to a friend.';
+  }
+}
