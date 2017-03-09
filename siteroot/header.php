@@ -16,7 +16,7 @@
   </head>
   <body>
     <header>
-      <h1><span class="chroma">CHROMA</span><span class="beauty">Beauty</span></h1>
+      <a href="index.php"><h1><span class="chroma">CHROMA</span><span class="beauty">Beauty</span></h1></a>
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="products.php">Products</a></li>
@@ -37,7 +37,7 @@
           if($result->num_rows == 1 ){
             $row = $result->fetch_assoc();
       ?>
-        <a href="editprofile.php"><?php echo $row['username']; ?></a> / <a href="login.php?action=logout">Log Out</a>
+        <a href="profile.php"><?php echo $row['username']; ?></a> / <a href="login.php?action=logout">Log Out</a>
 
       <?php } } //end if logged in ?>
       </div>
