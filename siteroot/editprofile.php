@@ -118,7 +118,7 @@
       <input type="hidden" name="did_update" value="1" />
     </form>
     <a href='profile.php'>Return to Your Profile</a>
-    <p class="subtext">Returning to your profile will not save your current changes. If you made any changes, please use the button above to save them.</p>
+    <p class="subtext">Returning to your profile will not save your current changes.</p>
   </section>
 </main>
 <?php
