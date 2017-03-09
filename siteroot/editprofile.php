@@ -8,7 +8,7 @@
     //begin did_upload parser
     if($_POST['did_upload']){
       //where is the uploads directory?
-      $upload_path = '../uploads';
+      $upload_path = 'uploads';
 
       //create a list of image sizes (max width in px)
       $sizes = array (
@@ -86,7 +86,7 @@
 
           $user_id = USER_ID;
           $query = "UPDATE users
-                    SET userpic = '$uniquestring'
+                    SET user_pic = '$uniquestring'
                     WHERE user_id = $user_id";
           $result = $db->query($query);
           if( $db->affected_rows == 1 ){

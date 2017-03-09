@@ -16,7 +16,7 @@
 ?>
 <main>
   <h2><?php echo $row['username']; ?>'s Profile</h2>
-  <!-- <img src=""> -->
+  <?php echo show_userpic($user_id,'large'); ?>
   <ul>
     <li>Username: <?php echo $row['username']; ?></li>
     <li>Email: <?php echo $row['email']; ?></li>

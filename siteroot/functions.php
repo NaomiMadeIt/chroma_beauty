@@ -117,7 +117,7 @@ function security_check($redirect = false){
     echo $query;
    header('Location:login.php?msg=no_rows');
   }
-}
+} //end security_check
 
 function reccommend($would_rec){
   if($would_rec = 1){
@@ -125,4 +125,42 @@ function reccommend($would_rec){
   }else{
     echo 'I would not reccommend this product to a friend.';
   }
-}
+} //end would_rec
+
+function show_userpic( $user_id, $size ){
+	global $db;
+	$query = "SELECT user_pic, username
+			FROM users
+			WHERE user_id = $user_id
+			LIMIT 1";
+	$result = $db->query($query);
+	if( $result->num_rows == 1 ){
+		//display the image if it exists, otherwise show the default user_pic
+		$row = $result->fetch_assoc();
+		if( $row['user_pic'] != '' ){
+			echo '<img src="' . ROOT_URL . 'uploads/' . $row['user_pic'] . '_' . $size .
+			'.jpg" class="userpic" alt="' . $row['username'] . '\'s user pic">';
+		}else{
+			echo '<img src="' . ROOT_URL . 'images/default_' . $size . '.jpg" class="userpic" alt="default userpic">';
+		}
+	}
+} //end show user_pic
+
+function show_prodimg( $product_id, $size ){
+	global $db;
+	$query = "SELECT product_images.image, products.name
+			FROM product_images, products
+			WHERE product_id = $product_id
+			LIMIT 1";
+	$result = $db->query($query);
+	if( $result->num_rows == 1 ){
+		//display the image if it exists, otherwise show the default user_pic
+		$row = $result->fetch_assoc();
+		if( $row['image'] != '' ){
+			echo '<img src="' . ROOT_URL . 'images/' . $row['image'] . '_' . $size .
+			'.jpg" class="prodimg" alt="' . $row['name'] . '">';
+		}else{
+			echo '<img src="' . ROOT_URL . 'images/prod_default_' . $size . '.jpg" class="prodimg" alt="default userpic">';
+		}
+	}
+} //end show_prodimg

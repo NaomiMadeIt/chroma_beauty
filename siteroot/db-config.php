@@ -15,7 +15,9 @@ if( $db-> connect_errno > 0 ){
 //salt for making our passwords stronger. Keep salts a secret!
 define('SALT', 'ldsjflajlfkj@suajldf$$$why$you$so$salty$tho???ha7fjs()DSFSJKELFiejafji*$91113344osi7jaesa!FS(1i#a#flndfdksdfjaaakfj');
 
-define('ROOT_URL', 'http://localhost/naomi_php/chroma_beauty/');
-define('ROOT_PATH', 'C:\xampp\htdocs\naomi_php\chroma_beauty');
+define('ROOT_URL', 'http://localhost/naomi_php/chroma_beauty/siteroot/');
+define('ROOT_PATH', 'C:\xampp\htdocs\naomi_php\chroma_beauty\siteroot');
 
 session_start();
+
+error_reporting( E_ALL & ~E_NOTICE );

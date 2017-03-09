@@ -16,6 +16,7 @@
               FROM products, product_images, reviews
               WHERE products.product_id = product_images.product_id
               AND products.product_id = reviews.product_id
+              AND products.product_id = product_images.product_id
               GROUP BY reviews.product_id
               ORDER BY products.added_date DESC";
     // echo $query;
