@@ -1,5 +1,15 @@
 body {
   font-family: 'Nunito', sans-serif;
+  width: 960px;
+  margin: 0 auto;
+}
+div {
+  border: 1px solid hotpink;
+}
+.headtop {
+  background-color: blue;
+  height: 70px;
+  position: relative;
 }
 .chroma {
   font-family: 'Boogaloo', cursive;
@@ -8,6 +18,11 @@ body {
 .beauty {
   font-family: 'Pacifico', cursive;
   color: #FFF;
+}
+.accountbox {
+  position: absolute;
+  top: 10px;
+  right: 5px;
 }
 header, footer {
   background-color: #010108;

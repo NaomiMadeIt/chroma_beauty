@@ -13,34 +13,38 @@
   </head>
   <body>
     <header>
-      <a href="index.php"><h1><span class="chroma">CHROMA</span><span class="beauty">Beauty</span></h1></a>
-      <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="products.php">Products</a></li>
-        <li><a href="about.php">About Us</a></li>
-      </ul>
-      <div>
-      <?php if(!defined('USER_ID')){ ?>
-        <a href="login.php">Login</a> / <a href="register.php">Sign Up</a>
-      <?php
-        } // close if not logged in
-        else{
-          $user_id = USER_ID;
-          $query = "SELECT username
-                    FROM users
-                    WHERE user_id = $user_id
-                    LIMIT 1";
-          $result = $db->query($query);
-          if($result->num_rows == 1 ){
-            $row = $result->fetch_assoc();
-      ?>
-        <a href="profile.php"><?php echo $row['username']; ?></a><span class="tinypic"><?php echo show_userpic($user_id,'small'); ?></span> / <a href="login.php?action=logout">Log Out</a>
+      <div class="headtop">
+        <a href="index.php"><h1><span class="chroma">CHROMA</span><span class="beauty">Beauty</span></h1></a>
+        <div class="accountbox">
+        <?php if(!defined('USER_ID')){ ?>
+          <a href="login.php">Login</a> / <a href="register.php">Sign Up</a>
+        <?php
+          } // close if not logged in
+          else{
+            $user_id = USER_ID;
+            $query = "SELECT username
+                      FROM users
+                      WHERE user_id = $user_id
+                      LIMIT 1";
+            $result = $db->query($query);
+            if($result->num_rows == 1 ){
+              $row = $result->fetch_assoc();
+        ?>
+          <a href="profile.php"><?php echo $row['username']; ?></a><span class="tinypic"><?php echo show_userpic($user_id,'small'); ?></span> / <a href="login.php?action=logout">Log Out</a>
 
-      <?php } } //end if logged in ?>
+        <?php } } //end if logged in ?>
+        </div>
       </div>
-      <form action="search.php" method="get">
-        <label for="keywords">Search:</label>
-        <input type="search" name="keywords" id="keywords" />
-        <input type="submit" value="Find" />
-      </form>
+      <div>
+        <ul>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="products.php">Products</a></li>
+          <li><a href="about.php">About Us</a></li>
+        </ul>
+        <form action="search.php" method="get">
+          <label for="keywords">Search:</label>
+          <input type="search" name="keywords" id="keywords" />
+          <input type="submit" value="Find" />
+        </form>
+      </div>
     </header>
