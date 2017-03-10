@@ -3,34 +3,227 @@ body {
   width: 960px;
   margin: 0 auto;
 }
-div {
-  border: 1px solid hotpink;
+header {
+  background-color: #010108;
+  color: #FFF;
 }
+a {
+  text-decoration: none;
+}
+/*****************************************/
+/************* Header Styles *************/
+/*****************************************/
 .headtop {
-  background-color: blue;
-  height: 70px;
+  height: 60px;
   position: relative;
+}
+.bloglogo {
+  display: inline-block;
+  padding: 8px 10px;
+  margin-left: 20px;
 }
 .chroma {
   font-family: 'Boogaloo', cursive;
   color: #F23EDA;
+  font-size: 2.5em;
 }
 .beauty {
   font-family: 'Pacifico', cursive;
   color: #FFF;
+  font-size: 2.15em;
 }
 .accountbox {
   position: absolute;
-  top: 10px;
-  right: 5px;
+  top: 0;
+  right: 20px;
+  font-family: 'Boogaloo', cursive;
+  height: 60px;
 }
-header, footer {
-  background-color: #010108;
-  color: #FFF;
+.log {
+  display: inline-block;
+  line-height: 60px;
+  vertical-align: middle;
+  color: #C876FF;
+  font-size: 2em;
+  padding: 0 20px;
 }
+.log:hover {
+  color: white;
+  /*transition: 1s ease;*/
+}
+.splitter {
+  font-size: 2em;
+  line-height: 60px;
+  vertical-align: middle;
+}
+.userprofile:first-of-type {
+  padding: 0 10px 0 20px;
+}
+.userprofile {
+  display: inline-block;
+  font-family: 'Pacifico', cursive;
+  color: #C876FF;
+  font-size: 2em;
+  line-height: 60px;
+  vertical-align: top;
+}
+.tinypic img {
+  border-radius: 20px;
+  margin: 5px 10px;
+}
+/*div {
+  border: 1px solid hotpink;
+}*/
+.headbottom {
+  height: 40px;
+}
+.headbottom ul {
+  margin-left: 40px;
+  float: left;
+  height: 40px;
+  box-sizing: border-box;
+}
+.headbottom li {
+  float: left;
+  line-height: 40px;
+}
+.headbottom li a {
+  font-family: 'Boogaloo', cursive;
+  color: #C876FF;
+  font-size: 1.5em;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+.headbottom li a:hover {
+  color: white;
+}
+.headbottom .searchform {
+  float: right;
+  padding-top: 3px;
+  padding-right: 40px;
+}
+.searchform label {
+  font-family: 'Boogaloo', cursive;
+  color: #F23EDA;
+  font-size: 1.5em;
+}
+.searchform input[type=search]{
+  height: 28px;
+  border: 1px solid #C876FF;
+  padding: 5px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+.searchform input[type=submit]{
+  height: 28px;
+  width: 60px;
+  background-color: #C876FF;
+  border: none;
+  font-family: 'Boogaloo', cursive;
+  border: 1px solid #20115B;
+  color: white;
+}
+.searchform input[type=submit]:hover {
+  background-color: #F23EDA;
+  color: white;
+  cursor: pointer;
+}
+/*****************************************/
+/************** Aside Styles *************/
+/*****************************************/
 aside {
+  background-image: url(../images/sidebg.gif);
+  background-repeat: repeat-y;
   background-color: #20115B;
+  float: left;
+  width: 200px;
+  padding: 20px;
+  box-sizing: border-box;
 }
+aside h2 {
+  font-size: 2em;
+  padding-bottom: 22px;
+  border-bottom: 1px solid white;
+}
+.sidenav {
+  font-family: 'Boogaloo', cursive;
+  font-size: 1.8em;
+  padding: 20px 0 0;
+}
+.sidenav li {
+  margin-bottom: 5px;
+}
+.sidenav li a {
+  color: #F23EDA;
+}
+.sidenav li a:hover {
+  /*color: #F23EDA;*/
+  color: white;
+}
+.sidesubnav {
+  margin-top: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-style: bold;
+  font-size:.8em;
+  margin-left: 20px;
+}
+.sidesubnav li a {
+  color: #C876FF;
+}
+/*****************************************/
+/********* Product Page Styles ***********/
+/*****************************************/
+.products {
+  background-color: white;
+  float: left;
+  width: 760px;
+  /*border: 1px solid red;*/
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+.pagetitle {
+  /*border: 1px solid red;*/
+  border-bottom: 1px solid #010108;
+  margin-bottom: 40px;
+}
+.pagetitle h2 {
+  float: left;
+  margin-bottom: 15px;
+  font-size: 2.5em;
+}
+.pagetitle h3 {
+  float: right;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+figure {
+  float: left;
+  width: 200px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+figure:nth-of-type(3n+3){
+  margin-right: 0;
+}
+figure:hover {
+  outline: 1px solid #F6B3E5;
+}
+figure h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+figure a {
+  color: #C876FF;
+}
+figure a:hover {
+  color: #F23EDA;
+}
+/*****************************************/
+/************** Home Styles **************/
+/*****************************************/
+
 h2 {
   font-family: 'Pacifico', cursive;
   color: #F23EDA;
@@ -48,8 +241,11 @@ h3 {
 .notrated {
   color: #F6B3E5;
 }
-.tinypic img {
-  border-radius: 20px;
+
+footer {
+  background-color: #010108;
+  color: #FFF;
+  text-align: center;
 }
 /*
 font-family: 'Boogaloo', cursive;
@@ -63,3 +259,18 @@ lavender - #C876FF;
 palepink - #F6B3E5;
 
 */
+
+/************/
+/* clearfix */
+/************/
+.cf:before,
+.cf:after {
+  content: "";
+  display: block;
+  }
+  .cf:after {
+    clear: both;
+    }
+  .cf {
+    zoom: 1; /* for old ie (trigger has layout) */
+    }

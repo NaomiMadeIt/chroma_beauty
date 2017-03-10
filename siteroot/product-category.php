@@ -28,6 +28,7 @@
             AND categories.category_id = $category_id
             AND products.product_id = product_images.product_id
             AND products.product_id = reviews.product_id
+            GROUP BY products.product_id
             ORDER BY products.added_date DESC";
   // echo $query;
   $result = $db->query($query);
@@ -64,7 +65,7 @@
       while( $row = $result->fetch_assoc() ){
 ?>
 <figure>
-  <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $row['image']; ?>" /></a>
+  <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo show_prodimg($row['product_id'],'medium'); ?></a>
   <figcaption>
     <h3><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a></h3>
     <p><?php rating($row['rating']); ?></p>

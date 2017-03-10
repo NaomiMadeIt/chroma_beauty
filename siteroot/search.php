@@ -18,6 +18,7 @@
               FROM products, categories, product_categories, product_images, reviews
               WHERE products.product_id = product_categories.product_id
               AND categories.category_id = product_categories.category_id
+              AND products.product_id = product_images.product_id
               AND ( products.name LIKE '%$keywords%' OR products.description LIKE '%$keywords%' OR categories.cat_name LIKE '%$keywords%' )";
     // echo $query;
     //run the query. catch the returned info in a result
@@ -52,7 +53,7 @@
         while( $row = $result->fetch_assoc() ){
     ?>
     <figure>
-      <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $row['image']; ?>" /></a>
+      <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo show_prodimg($row['product_id'],'medium'); ?></a>
       <figcaption>
         <h3><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a></h3>
         <p><?php rating($row['rating']); ?></p>

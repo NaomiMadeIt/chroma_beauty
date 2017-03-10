@@ -10,7 +10,9 @@
   //start on page 1
   $current_page = 1;
 ?>
-<main>
+<main class="products cf">
+  <div class="pagetitle cf">
+  <h2>Products</h2>
   <?php
     $query = "SELECT products.product_id, product_images.image, products.name, reviews.rating, products.price, products.added_date
               FROM products, product_images, reviews
@@ -53,8 +55,9 @@
         }
         while( $row = $result->fetch_assoc() ){
   ?>
+  </div>
   <figure>
-    <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo show_prodimg($row['product_id'],'medium'); ?></a></a>
+    <a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo show_prodimg($row['product_id'],'medium'); ?></a>
     <figcaption>
       <h3><a href="single.php?product_id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a></h3>
       <p><?php rating($row['rating']); ?></p>
