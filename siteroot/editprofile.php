@@ -174,7 +174,7 @@
       }
     } //end if did update
 
-  $query = "SELECT username, email, fname, lname, bio
+  $query = "SELECT user_id, username, email, fname, lname, bio
             FROM users
             WHERE user_id = $user_id";
   $result = $db->query($query);
@@ -198,6 +198,10 @@
 
     <?php show_feedback($feedback,$errors); ?>
 
+    <h3>Current Profile Picture</h3>
+    <?php show_userpic($row['user_id'],'large'); ?>
+
+    <h3>Change Current Profile Picture</h3>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
     enctype="multipart/form-data">
       <label>Upload Image</label>
@@ -207,6 +211,7 @@
       <input type="hidden" name="did_upload" value="1" />
     </form>
 
+    <h3>Edit Profile Information</h3>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
       <label for="username">Username</label>
       <input type="text" name="username" id="username" value="<?php echo $username; ?>" />
@@ -227,7 +232,6 @@
       <input type="hidden" name="did_update" value="1" />
     </form>
     <a href='profile.php'>Return to Your Profile</a>
-    <p class="subtext">Returning to your profile will not save your current changes.</p>
   </section>
 </main>
 <?php

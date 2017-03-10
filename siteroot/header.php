@@ -34,7 +34,7 @@
           if($result->num_rows == 1 ){
             $row = $result->fetch_assoc();
       ?>
-        <a href="profile.php"><?php echo $row['username']; ?></a> / <a href="login.php?action=logout">Log Out</a>
+        <a href="profile.php"><?php echo $row['username']; ?></a><span class="tinypic"><?php echo show_userpic($user_id,'small'); ?></span> / <a href="login.php?action=logout">Log Out</a>
 
       <?php } } //end if logged in ?>
       </div>

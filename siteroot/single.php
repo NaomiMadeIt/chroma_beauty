@@ -3,6 +3,7 @@
   include_once('functions.php');
   security_check();
   include('header.php');
+  include('sidebar.php');
 
   //shows what post we're trying to show
   //URL will look like: ../single.php?product_id=X\
@@ -65,7 +66,7 @@
 ?>
 <main>
   <?php
-    $query = "SELECT product_images.image, products.name, products.description, products.price, products.in_stock, products.added_date
+    $query = "SELECT products.product_id, product_images.image, products.name, products.description, products.price, products.in_stock, products.added_date
               FROM products, product_images
               WHERE products.product_id = $product_id
               AND products.product_id = product_images.product_id
@@ -82,7 +83,7 @@
     $row_rating = $result->fetch_assoc();
   ?>
   <article>
-    <img src="<?php echo $row['image']; ?>" />
+    <?php echo show_prodimg($row['product_id'],'large'); ?>
     <h2><?php echo $row['name']; ?></h2>
     <p><?php echo $row['description']; ?></p>
     <p><?php echo stock($row['in_stock']); ?></p>

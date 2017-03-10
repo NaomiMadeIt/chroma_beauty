@@ -33,6 +33,9 @@ h3 {
 .notrated {
   color: #F6B3E5;
 }
+.tinypic img {
+  border-radius: 20px;
+}
 /*
 font-family: 'Boogaloo', cursive;
 font-family: 'Pacifico', cursive;

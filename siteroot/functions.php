@@ -148,17 +148,18 @@ function show_userpic( $user_id, $size ){
 
 function show_prodimg( $product_id, $size ){
 	global $db;
-	$query = "SELECT product_images.image, products.name
+	$query_prodimg = "SELECT product_images.image, products.name
 			FROM product_images, products
-			WHERE product_id = $product_id
+			WHERE products.product_id = $product_id
+      AND products.product_id = product_images.product_id
 			LIMIT 1";
-	$result = $db->query($query);
-	if( $result->num_rows == 1 ){
+	$result_prodimg = $db->query($query_prodimg);
+	if( $result_prodimg->num_rows == 1 ){
 		//display the image if it exists, otherwise show the default user_pic
-		$row = $result->fetch_assoc();
-		if( $row['image'] != '' ){
-			echo '<img src="' . ROOT_URL . 'images/' . $row['image'] . '_' . $size .
-			'.jpg" class="prodimg" alt="' . $row['name'] . '">';
+		$row_prodimg = $result_prodimg->fetch_assoc();
+		if( $row_prodimg['image'] != '' ){
+			echo '<img src="' . ROOT_URL . 'images/' . $row_prodimg['image'] . '_' . $size .
+			'.jpg" class="prodimg" alt="' . $row_prodimg['name'] . '">';
 		}else{
 			echo '<img src="' . ROOT_URL . 'images/prod_default_' . $size . '.jpg" class="prodimg" alt="default userpic">';
 		}

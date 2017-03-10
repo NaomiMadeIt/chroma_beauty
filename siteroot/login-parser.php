@@ -49,7 +49,7 @@ if( $_POST['did_login']){
       die( $db->error );
     }
     //send to secret page
-    header('location:secret-page.php');
+    header('location:profile.php');
   }else{
     //show an error
     $feedback = 'Your username and password combo is incorrect.';
